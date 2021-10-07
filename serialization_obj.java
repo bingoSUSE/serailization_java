@@ -2,7 +2,7 @@ import java.io.*;
 
 public class serialization_1
 {
-	public static void main(String[] args) 
+	public static void main(String[] args) throws Exception
 	{
 		Save obj = new Save();  // this the serialized class of object
 		obj.i = 56;
@@ -13,7 +13,7 @@ public class serialization_1
 		//now we are going to show the demo file content
 		FileInputStream fis = new FileInputStream(f);
 		ObjectInputStream ois = new ObjectInputStream(fis);
-		Save obj1 =  ois.readObject();
+		Save obj1 = (Save) ois.readObject(); //save the object changes with object casting
 		System.out.println("Value of obj1= " + obj1.i);
 	}
 }
